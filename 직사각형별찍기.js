@@ -11,3 +11,5 @@ function solution(n, m) {
     }
     return answer;
 }
+
+console.log(solution(n, m));
