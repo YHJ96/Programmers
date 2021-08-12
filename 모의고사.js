@@ -1,7 +1,9 @@
-const answers = [1,3,2,4,2];
+//푸는중
+
+const answers = [1,2,3,4,5];
 
 function solution(answers) {
-    const result = [];
+    let result = [];
     const student = [[1,2,3,4,5],[2,1,2,3,2,4,2,5],[3,3,1,1,2,2,4,4,5,5]];
     let answer = 0;
 
@@ -14,7 +16,14 @@ function solution(answers) {
         result.push(answer);
         answer *= 0;
     }
-    return answers;
+    result = result.map((item, index) => {
+        const max = Math.max(...result);
+        if (item === max) {
+            return index + 1;
+        } else return 0;
+    })
+    result = result.filter((item) => item !== 0);
+    return result;
 }
 
 console.log(solution(answers));
