@@ -3,6 +3,7 @@ const answers = [1,2,3,4,5,1,2,3,4,5];
 function solution(answers) {
     let result = [];
     const student = [[1,2,3,4,5],[2,1,2,3,2,4,2,5],[3,3,1,1,2,2,4,4,5,5]];
+    // 학생 점수 반복
     let answer = 0;
 
     for(let i = 0; i < student.length; i++) {
@@ -20,7 +21,7 @@ function solution(answers) {
         // result에 값을 넣고 answer 초기화
     }
 
-    if(result.every((item)=> item === 0)) return [0];
+    if(result.every((item) => item === 0)) return [0];
     // 혹시나 모두 0점인 예외처리
     result = result.map((item, index) => {
         const max = Math.max(...result);
