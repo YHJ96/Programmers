@@ -1,6 +1,6 @@
 //푸는중
 
-const answers = [1,2,3,4,5];
+const answers = [1,2,5,4,3];
 
 function solution(answers) {
     let result = [];
@@ -16,13 +16,14 @@ function solution(answers) {
         result.push(answer);
         answer *= 0;
     }
+    if(result.every((item)=> item === 0)) return [0];
     result = result.map((item, index) => {
         const max = Math.max(...result);
         if (item === max) {
             return index + 1;
-        } else return 0;
+        } else return -1;
     })
-    result = result.filter((item) => item !== 0);
+    result = result.filter((item) => item !== -1);
     return result;
 }
 
