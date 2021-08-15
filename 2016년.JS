@@ -17,12 +17,17 @@ function solution(a, b) {
     let answer = '';
     for(let i = 0; i < monthDays.length; i++) {
         for(let j = 0; j < monthDays[i]; j++) {
-            
-            if( i === a && j === b) {
-                answer += daysName[j];
+            let k = 0;
+            if(k === 6) {
+                k *= 0;
+            }
+            k++;
+            if(i === a && k === b) {
+                answer += daysName[k];
             }
         }
     }
+    return answer;
 }
 
 console.log(solution(a,b));
