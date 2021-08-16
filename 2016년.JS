@@ -8,7 +8,7 @@ a = month
 b = day
 */
 
-const a = 5;
+const a = 4;
 const b = 24;
 
 function solution(a, b) {
@@ -16,14 +16,15 @@ function solution(a, b) {
     const daysName = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU'];
     let answer = '';
     for(let i = 0; i < monthDays.length; i++) {
-        for(let j = 0; j < monthDays[i]; j++) {
-            let k = 0;
-            if(k === 6) {
+        for(let j = 1, k = 0; j <= monthDays[i]; j++,k++) {
+            console.log(monthDays[i]);
+            if(k === 7) {
                 k *= 0;
             }
-            k++;
-            if(i === a && k === b) {
-                answer += daysName[k];
+            console.log('k = ', k);
+            if((a - 1) === i && b === j) {
+                console.log('if k =', k, 'a =', a, 'i =', i);
+                return answer += daysName[k];
             }
         }
     }
