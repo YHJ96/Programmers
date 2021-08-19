@@ -11,8 +11,9 @@ const lost = [2, 4];
 const reserve = [1, 3, 4, 5];
 
 function solution(n, lost, reserve) {
-    let newReserve = reserve.filter((item) => lost.map((item1) => item !== item1));
-    return newReserve;
+    let newLost = lost.filter((item) => !reserve.includes(item));
+    let newReserve = reserve.filter((item) => !lost.includes(item));
+    return newLost;
 }
 
 console.log(solution(n, lost, reserve));
