@@ -8,7 +8,7 @@ reserve = 여유 옷 가져온 학생수 (앞뒤학생들만 가능)
 
 const n = 5;
 const lost = [2, 4];
-const reserve = [1, 3, 4, 5];
+const reserve = [3];
 
 function solution(n, lost, reserve) {
     let newLost = lost.filter((item) => !reserve.includes(item));
@@ -23,8 +23,10 @@ function solution(n, lost, reserve) {
             }
         }
     }
-    let answer = n - minus.length;
-    return answer;
+    console.log('newLost : ', newLost, 'newReserve :', newReserve);
+    newLost = newLost.filter((item) => !minus.includes(item));
+    const answer = n - newLost.length;
+    return minus;
 }
 
 console.log(solution(n, lost, reserve));
