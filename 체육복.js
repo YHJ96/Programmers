@@ -13,7 +13,18 @@ const reserve = [1, 3, 4, 5];
 function solution(n, lost, reserve) {
     let newLost = lost.filter((item) => !reserve.includes(item));
     let newReserve = reserve.filter((item) => !lost.includes(item));
-    return newLost;
+    let minus = [];
+    for(let i = 0; i < newLost.length; i++) {
+        for(let j = 0; j < newReserve.length; j++) {
+            if(newLost[i] - newReserve[j] === -1 || newLost[i] - newReserve[j] === 1) {
+                minus.push(newLost[i]);
+                newLost.splice(newLost[i], 1);
+                newReserve.splice(newReserve[j], 1);
+            }
+        }
+    }
+    let answer = n - minus.length;
+    return answer;
 }
 
 console.log(solution(n, lost, reserve));
