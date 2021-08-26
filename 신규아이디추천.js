@@ -16,6 +16,27 @@ function solution(new_id) {
         } continue;
     }
     answer = answer.filter((item) => answer.includes(item));
+    if(answer[0] === '.') {
+        answer.shift()
+    } else if(answer[answer.length - 1] === '.') {
+        answer.pop();
+    } else if(answer.length === 0) {
+        answer.push('a');
+    }
+    
+    if(answer.length >= 16) {
+        answer = answer.slice(0, 15);
+        if(answer[15] === '.') {
+            answer = answer.pop();
+        }
+    }
+
+    if(answer.length >= 2) {
+        if(answer.length === 4) return;
+        else answer.push(answer[answer.length - 1]);
+    } 
+
+    answer = answer.join('');
     return answer;
 }
 
