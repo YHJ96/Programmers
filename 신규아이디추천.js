@@ -11,14 +11,11 @@ function solution(new_id) {
     answer = [...answer];
     answer = answer.filter((item) => level2.includes(item));
     for(let i = 0; i < answer.length; i++) {
-        for (let j = 0; j < answer.length; j++) {
-            if(answer[i] === '.' && answer[j] === '.' && i !== j) {
-                delete answer[j]; 
-            } if(answer[j] !== '.' && i !== j) {
-                continue;
-            }
-        }
+        if(answer[i] === '.' && answer[i + 1] === '.') {
+            delete answer[i];
+        } continue;
     }
+    answer = answer.filter((item) => answer.includes(item));
     return answer;
 }
 
