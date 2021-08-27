@@ -1,6 +1,6 @@
 // 푸는중
 
-const new_id = 	"...!@BaT#*..y.abcdefghijklm";
+const new_id = 	"";
 
 function solution(new_id) {
     let answer = new_id;
@@ -16,26 +16,14 @@ function solution(new_id) {
         } continue;
     }
     answer = answer.filter((item) => answer.includes(item));
-    if(answer[0] === '.') {
-        answer.shift()
-    } else if(answer[answer.length - 1] === '.') {
-        answer.pop();
-    } else if(answer.length === 0) {
-        answer.push('a');
+    if(answer[0] === '.') answer.shift();
+    if(answer[answer.length - 1] === '.') answer.pop();
+    if(answer.length === 0) answer.push('a');
+    if(answer.length >= 16) answer = answer.slice(0, 15);
+    if(answer[answer.length - 1] === '.') answer.pop();
+    while(answer.length < 3) {
+        answer.push(answer[answer.length - 1]);
     }
-    
-    if(answer.length >= 16) {
-        answer = answer.slice(0, 15);
-        if(answer[15] === '.') {
-            answer = answer.pop();
-        }
-    }
-
-    if(answer.length >= 2) {
-        if(answer.length === 4) return;
-        else answer.push(answer[answer.length - 1]);
-    } 
-
     answer = answer.join('');
     return answer;
 }
