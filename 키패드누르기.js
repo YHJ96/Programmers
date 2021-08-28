@@ -6,9 +6,12 @@ const hand = "right";
 function solution(numbers, hand) {
     const pad = [ [1, 2, 3], [4, 5, 6], [7, 8, 9], ['*', 0, '#'] ];
     const XY = numbers.map((item) => {
-        const X = pad.map((value, index) => {
-            if(value.includes(item)) return index;
-        })
+        const X = pad.filter((value) => value.includes(item))
+        .map((xArr) => xArr.map((xitem, index) => {
+            if(xitem === item) return index + 1;
+            return -1; 
+        }))
+        .filter((item) => item !== -1)[0];
         return X; 
     })
     return XY;
