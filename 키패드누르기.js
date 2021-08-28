@@ -5,8 +5,13 @@ const hand = "right";
 
 function solution(numbers, hand) {
     const pad = [ [1, 2, 3], [4, 5, 6], [7, 8, 9], ['*', 0, '#'] ];
-    let left = pad[3][0];
-    let right = pad[3][2];
+    const XY = numbers.map((item) => {
+        const X = pad.map((value, index) => {
+            if(value.includes(item)) return index;
+        })
+        return X; 
+    })
+    return XY;
 }
 
 console.log(solution(numbers, hand));
