@@ -12,9 +12,16 @@ function solution(numbers, hand) {
             return -1;
         })
         .filter((item) => item !== -1);
-        return yAxis;
+
+        const xAxis = pad.filter((xValue) => xValue.includes(item))
+        .map((xItem) => {
+            xItem.map((x, index) => {
+                if(x === item) return index + 1;
+                return -1;
+            })
+        })
+        return xAxis;
     })
-    return xyAxis;
 }
 
 console.log(solution(numbers, hand));
