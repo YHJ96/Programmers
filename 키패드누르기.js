@@ -20,8 +20,10 @@ function solution(numbers, hand) {
                 return -1;
             })
         })
-        return xAxis;
+        .filter((item) => item !== -1)[0];
+        return [xAxis, yAxis];
     })
+    return xyAxis;
 }
 
 console.log(solution(numbers, hand));
