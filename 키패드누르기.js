@@ -13,15 +13,15 @@ function solution(numbers, hand) {
         })
         .filter((item) => item !== -1);
 
-        const xAxis = pad.filter((xValue) => xValue.includes(item))
+        const xAxis = pad
+        .filter((xArr) => xArr.includes(item))
         .map((xItem) => {
-            xItem.map((x, index) => {
-                if(x === item) return index + 1;
+            return xItem.map((xValue, index) => {
+                if(xValue === item) return index + 1;
                 return -1;
-            })
+            }).filter((item) => item !== -1)[0];
         })
-        .filter((item) => item !== -1)[0];
-        return [xAxis, yAxis];
+        return [xAxis[0], yAxis[0]];
     })
     return xyAxis;
 }
